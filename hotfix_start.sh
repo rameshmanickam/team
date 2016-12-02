@@ -1,5 +1,5 @@
 #!/bin/sh
-#export PATH="${jenkins_tools_repo}"/jenkins/gitflow:$PATH
+export PATH="${jenkins_tools_repo}"/jenkins/gitflow:$PATH
 
 if [ -z "${TAG_NAME}" ] ; then
 	printf "\n*** TAG_NAME is blank. BRANCH WILL BE CREATED BASED ON THE LATEST OF MASTER****\n"
@@ -7,6 +7,20 @@ fi
 
 git pull origin master
 git checkout master
+
+#git checkout "${ORIGIN_BRANCH}"
+git-flow init -f <<EOF
+master
+$ORIGIN_BRANCH
+feature/
+release/
+hotfix/
+EOF
+
+git-flow "${BRANCH_TYPE}" start "${BRANCH_NAME}" "${TAG_NAME}"<<EOF
+$BRANCH_NAME
+$SRC_BRANCH
+EOF
 
 #checking if the last command was executed successfully = branch created successfully
 if [ $? -eq 0 ] ; then
