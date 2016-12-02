@@ -8,20 +8,6 @@ fi
 git pull origin master
 git checkout master
 
-#git checkout "${ORIGIN_BRANCH}"
-git-flow init -f <<EOF
-master
-$ORIGIN_BRANCH
-feature/
-release/
-hotfix/
-EOF
-
-git-flow "${BRANCH_TYPE}" start "${BRANCH_NAME}" "${TAG_NAME}"<<EOF
-$BRANCH_NAME
-$SRC_BRANCH
-EOF
-
 #checking if the last command was executed successfully = branch created successfully
 if [ $? -eq 0 ] ; then
 	#git tag -a "${BRANCH_TYPE}/${BRANCH_NAME}" -m "Tag Created for ${BRANCH_TYPE}/${BRANCH_NAME}"
