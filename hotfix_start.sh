@@ -29,7 +29,7 @@ if [ $? -eq 0 ] ; then
 	git commit -m "CREATING $BRANCH_TYPE: ${BRANCH_NAME} - WITH CONFIGURATION" || echo 'Commit failed. There is probably nothing to commit.'
 	git push
 	#git push -u "${REPO}" "${BRANCH_TYPE}/${BRANCH_NAME}"
-	#cd $WORKSPACE
+	cd $WORKSPACE
 	echo "done"
 else
 	printf "\n***HOTFIX BRANCH CREATION FAILED****\n"
