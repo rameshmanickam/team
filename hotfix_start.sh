@@ -27,8 +27,9 @@ if [ $? -eq 0 ] ; then
 	#git tag -a "${BRANCH_TYPE}/${BRANCH_NAME}" -m "Tag Created for ${BRANCH_TYPE}/${BRANCH_NAME}"
 	git add .
 	git commit -m "CREATING $BRANCH_TYPE: ${BRANCH_NAME} - WITH CONFIGURATION" || echo 'Commit failed. There is probably nothing to commit.'
+	#git push --set-upstream origin $BRANCH_NAME
 	git push -u "${REPO}" "${BRANCH_TYPE}/${BRANCH_NAME}"
-	#cd $WORKSPACE
+	cd $WORKSPACE
 	echo "done"
 else
 	printf "\n***HOTFIX BRANCH CREATION FAILED****\n"
