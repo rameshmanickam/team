@@ -1,5 +1,5 @@
 #!/bin/sh
-#export PATH="${jenkins_tools_repo}"/jenkins/gitflow:$PATH
+##export PATH="${jenkins_tools_repo}"/jenkins/gitflow:$PATH
 
 #if [ -z "${TAG_NAME}" ] ; then
 #	printf "\n*** TAG_NAME is blank. BRANCH WILL BE CREATED BASED ON THE LATEST OF MASTER****\n"
@@ -27,8 +27,8 @@ if [ $? -eq 0 ] ; then
 	#git tag -a "${BRANCH_TYPE}/${BRANCH_NAME}" -m "Tag Created for ${BRANCH_TYPE}/${BRANCH_NAME}"
 	git add .
 	git commit -m "CREATING $BRANCH_TYPE: ${BRANCH_NAME} - WITH CONFIGURATION" || echo 'Commit failed. There is probably nothing to commit.'
-	#git push --set-upstream origin $BRANCH_NAME
-	git push -u "${REPO}" "${BRANCH_TYPE}/${BRANCH_NAME}"
+	git push --set-upstream origin $BRANCH_NAME
+	#git push -u "${REPO}" "${BRANCH_TYPE}/${BRANCH_NAME}"
 	#cd $WORKSPACE
 	echo "done"
 else
