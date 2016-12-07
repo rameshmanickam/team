@@ -33,7 +33,7 @@ if [ $? -eq 0 ] ; then
 	echo "done"
 else
 	printf "\n***HOTFIX BRANCH CREATION FAILED****\n"
-	git remote prune origin
+	#git remote prune origin
 fi
 
 
